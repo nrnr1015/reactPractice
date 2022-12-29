@@ -20,7 +20,6 @@ function App() {
     setArray(arrayCopy)
   }
   
-  
   return (
     <div className="App">
       <div className="block-nav">
