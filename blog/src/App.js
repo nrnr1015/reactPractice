@@ -62,7 +62,7 @@ function App() {
       </button>
 
       {
-        modal === true ? <Modal /> : null
+        modal === true ? <Modal titleArray={array}/> : null
       }
       
     </div>
@@ -73,10 +73,12 @@ function App() {
 // 1. 반복적일때 2. 큰 페이지를 쓸때 3. 지주 변경되는 UI
 // state 가져다 쓸때 주의 할 것.
 // const로 함수 만들면 실수 방지하기 좋음. const Modal = () => {}
-const Modal = () => {  
+// 부모 > 자식 state 전송 = pops 
+// 1.  <Modal titleArray={array}/>  2. props 파라미터 추가 {props.titleArray}
+const Modal = (props) => {  
   return(
     <div className="modal">
-      <h4>제목</h4>
+      <h4>{props.titleArray}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
