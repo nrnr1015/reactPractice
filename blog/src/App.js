@@ -14,6 +14,8 @@ function App() {
   let [array , setArray] = useState(['하마 코트 추천', '여자 코트 추천', '아동 코트 추천'])
   let [like, setLike] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
+  let [title, setTitle] = useState(0);
+  let [input, setInput] = useState('');
 
   function abcSort(){
     let arrayCopy = [...array].sort();
@@ -40,29 +42,41 @@ function App() {
           array.map(function (item, i){
             return (
               <div>
-                <h4 item={item} i={i} key={i}>
-                  {item}
-                  <span onClick={() => {
+                <h4 onClick={() => {
+                      setModal(true);
+                      setTitle(i);
+                    }} item={item} i={i} key={i}>
+                  {item} 
+                  <span onClick={(e) => {
+                    e.stopPropagation();
                     let likeCopy = [...like]
                     likeCopy[i] = likeCopy[i] + 1;
                     setLike(likeCopy)
                   }}>🍎 <span>{like[i]}</span></span>
                 </h4>
                 <p>날짜</p>
+                <button onClick={()=> {
+                  let copy = [...array];
+                  copy.splice(i, 1);
+                  setArray(copy)
+                }}>누르면 글 삭제</button>
               </div>
             )
           })
         }
       </div>
 
-      <button onClick={() => {
-        setModal(!modal)
-      }}>
-        Modal open
-      </button>
-
+      <input type="text" onChange={(elem) => {
+        setInput(elem.target.value)
+      }}/>
+      <button onClick={()=> {
+        let copy = [...array];
+        copy.unshift(input);
+        setArray(copy)
+      }}>누르면 입력한 값이 추가 되는 버튼</button>
+      
       {
-        modal === true ? <Modal titleArray={array}/> : null
+        modal === true ? <Modal color='yellow' title={title} titleArray={array}/> : null
       }
       
     </div>
@@ -77,8 +91,8 @@ function App() {
 // 1.  <Modal titleArray={array}/>  2. props 파라미터 추가 {props.titleArray}
 const Modal = (props) => {  
   return(
-    <div className="modal">
-      <h4>{props.titleArray}</h4>
+    <div className="modal" style={{background: props.color}}>
+      <h4>{props.titleArray[props.title]}</h4>
       <p>날짜</p>
       <p>상세내용</p>
     </div>
