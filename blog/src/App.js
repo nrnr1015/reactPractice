@@ -2,7 +2,7 @@
 
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 
 function App() {
@@ -78,7 +78,7 @@ function App() {
       {
         modal === true ? <Modal color='yellow' title={title} titleArray={array}/> : null
       }
-      
+      <ModalTow></ModalTow>
     </div>
   );
 }
@@ -97,6 +97,26 @@ const Modal = (props) => {
       <p>상세내용</p>
     </div>
   )
+}
+
+// class 문법으로 component 
+class ModalTow extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name : 'kim',
+      age : 20
+    }
+  }
+  render(){
+    return(
+      <div>Modal {this.state.name}
+        <button onClick={() => {
+          this.setState( {name : 21} )
+        }}>button</button>
+      </div>
+    )
+  }
 }
 
 export default App;
