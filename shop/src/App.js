@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import {useState} from 'react';
 
-function App() {
+import './App.css';
+import ShoseData from './data';
+
+function App(props) {
+
+  let [shoes, setShoes] = useState(ShoseData);
+
+  const itemList = () => {
+    shoes.map( (item, i) => {
+      return(
+        <div className={`col-md-4 item-elem item_${i}`} id={`item-${i}`} key={i}>
+          <img src={item.img} width="80%" alt={item.title}/>
+          <h4>{props.shoes[item.title]}</h4>
+          <p>{item.content}</p>
+          <p>{item.price}</p>
+        </div>
+      )
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+        <div className='main-bg'>
+        <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="80%" />
+        </div>
+
+        <div className="container">
+          <div className="row">
+            {itemList}
+          </div>
+        </div>
     </div>
   );
 }
+
+
 
 export default App;
