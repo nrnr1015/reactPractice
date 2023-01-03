@@ -16,7 +16,8 @@ const Nav = () => {
 
           <li onClick={ () => {navigete('/')}}>홈</li>
           <li onClick={ () => {navigete('/datail')}}>상세</li>
-          
+          <li onClick={ () => {navigete('/about')}}>about</li>
+
           {/* <li><Link className='link' to="/">홈</Link></li>
           <li><Link className='link' to="/datail">상세</Link></li> */}
         </ul>
