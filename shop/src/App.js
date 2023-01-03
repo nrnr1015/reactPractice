@@ -7,8 +7,9 @@ import Nav from './components/Nav';
 import Datail from './routes/Datail';
 
 
-import { Routes , Route, Link } from 'react-router-dom'
-function App(props) {
+import { Routes , Route, Link , useNavigate, Outlet} from 'react-router-dom'
+function App() {
+
   return (
     <div className="App">
         <Nav />
