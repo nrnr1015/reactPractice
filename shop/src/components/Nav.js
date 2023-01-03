@@ -11,6 +11,9 @@ const Nav = () => {
         <h1><Link className='link' to="/">Logo</Link></h1>
 
         <ul className='row'>
+          {/* onClick={ () => {navigete(-1)}}  뒤로가기 */}
+          {/* onClick={ () => {navigete(1)}}  앞으로 */}
+
           <li onClick={ () => {navigete('/')}}>홈</li>
           <li onClick={ () => {navigete('/datail')}}>상세</li>
           
