@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 
-import ShoseData from './data';
-import { Routes , Route, Link } from 'react-router-dom'
+import ShoseData from '../data/data';
 
 const Main = () => {
 

@@ -2,15 +2,13 @@ import * as React from 'react';
 import {useState} from 'react';
 
 import './App.css';
-import Main from './Main';
-import Nav from './Nav';
-import Datail from './Datail';
+import Main from './routes/Main';
+import Nav from './components/Nav';
+import Datail from './routes/Datail';
 
 
 import { Routes , Route, Link } from 'react-router-dom'
 function App(props) {
-
-
   return (
     <div className="App">
         <Nav />
