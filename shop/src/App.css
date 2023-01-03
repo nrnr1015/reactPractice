@@ -18,6 +18,35 @@
   background-size : cover;
   background-position : center; */
 }
+.Nav {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+h1 .link {
+  font-size: 30px;
+}
+ul {
+  list-style: none;
+}
+ul.row {
+  gap: 30px;
+}
+.link {
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+}
+.row-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.row-around .col-md-6 {
+  width: 50%;
+}
 .row {
   display: flex;
   align-items: center;
