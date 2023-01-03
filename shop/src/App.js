@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />}/> 
           <Route path='/datail' element={<Datail />}/> 
+          <Route path='*' element={<div>404페이지</div>}/> 
         </Routes>
         
     </div>
