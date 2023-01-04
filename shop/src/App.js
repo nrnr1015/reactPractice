@@ -21,6 +21,7 @@ function App(e,i) {
             <Route path='company' element={<div>company</div>}/> 
             <Route path='location' element={<div>location</div>}/> 
           </Route>
+          
           <Route path='/datail' element={<Datail />}/> 
           <Route path='*' element={<div>404페이지</div>}/> 
         </Routes>
