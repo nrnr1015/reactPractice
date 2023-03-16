@@ -9,7 +9,6 @@ import LottoData from './LottoData.js';
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
       <LottoData></LottoData>
     </div>
   );
