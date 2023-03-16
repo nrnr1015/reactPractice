@@ -12,7 +12,10 @@ module.exports = function (app) {
     app.use(
         createProxyMiddleware('/common', {
             target: 'https://www.dhlottery.co.kr',
+            secure: false,
             changeOrigin: true,
+            logLevel: "debug",
+            headers: { Connection: 'keep-alive' },
         }),
     );
 };
