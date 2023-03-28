@@ -106,10 +106,11 @@ function LottoData() {
     <div className='lottoDate'>
       {lottoData.map((lotto, i) => (
         <div key={i}>
-          <h2>{lottoData[i].draw_no}</h2>
-          <p>{lottoData[i].numbers}</p>
-          <p>{lottoData[i].bonus_no}</p>
-          {console.log(lottoData[i])}
+          <h2>{lotto.draw_no}</h2>
+          <p>{lotto.numbers}</p>
+          <p>{lotto.bonus_no}</p>
+          {/* {console.log(lottoData[i])} */}
+          {console.log("lotto",lotto)}
           {/* 나머지 코드 */}
         </div>
       ))}
