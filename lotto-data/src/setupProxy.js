@@ -2,17 +2,11 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function (app) {
-    app.use(
-        createProxyMiddleware('/trends/trendingsearches', {
-            target: 'https://trends.google.co.kr',
-            changeOrigin: true,
-        }),
-    );
 
     app.use(
-        createProxyMiddleware('/common', {
-            target: 'https://www.dhlottery.co.kr',
-            secure: false,
+        createProxyMiddleware('/lotto/results', {
+            target: 'https://smok95.github.io',
+            secure: true,
             changeOrigin: true,
             logLevel: "debug",
             headers: { Connection: 'keep-alive' },

@@ -91,38 +91,31 @@ function LottoData() {
 
   useEffect(() => {
     async function fetchData() {
-      const API_URL = '/common.do?method=getLottoNumber&drwNo=';
-      const lottoArr = [];
-
-      for (let i = 1; i <= 100; i++) {
-        const response = await axios.get(
-          API_URL + `${i}`
-        );
-        const data = response.data;
-        lottoArr.push(data);
-
-        if (response.returnValue === "fail") {
-          break; // 데이터가 더 이상 없으면 while 루프 종료
-        }
-      }
-      
-      setLottoData(lottoArr);
+      const API_URL = '/lotto/results/all.json';
+      const response = await axios.get(API_URL);
+      const responseData = response.data;
+      const responseDataLength = responseData.length;
+      const finalData = responseData.slice(0, responseDataLength);
+      setLottoData(finalData.sort((a,b) => b.draw_no - a.draw_no));
     }
 
     fetchData();
   }, []);
 
   return (
-    <div>
-      {lottoData.map((lotto, index) => (
-        <div key={index}>
-          <h2>{index + 1} 회차</h2>
-          <p>당첨 번호: {lotto.drwtNo1}, {lotto.drwtNo2}, {lotto.drwtNo3}, {lotto.drwtNo4}, {lotto.drwtNo5}, {lotto.drwtNo6}</p>
-          <p>보너스 번호: {lotto.bnusNo}</p>
-          <p>1등 당첨금: {lotto.firstWinamnt.toLocaleString()}원</p>
+    <div className='lottoDate'>
+      {lottoData.map((lotto, i) => (
+        <div key={i}>
+          <h2>{lottoData[i].draw_no}</h2>
+          <p>{lottoData[i].numbers}</p>
+          <p>{lottoData[i].bonus_no}</p>
+          {console.log(lottoData[i])}
+          {/* 나머지 코드 */}
         </div>
       ))}
     </div>
+
+
   );
 }
 
